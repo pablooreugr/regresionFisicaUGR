@@ -131,7 +131,7 @@ def test_chi_squared():
     
     # Calculate the chi-squared value
     residuals = vectorDatosY - y_predicted
-    chi_squared = np.sum(residuals**2 / vectorDatosDY**2)
+    chi_squared = np.sum(residuals**2 / y_predicted)
     
     # Print the result
     return chi_squared
