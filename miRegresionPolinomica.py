@@ -7,7 +7,7 @@ import scipy.stats as stats #Me sirve para saber los valores de chi^2
 import matplotlib.pyplot as plt #Me sirve para crear las graficas como tal
 import string #Me sirve para tener el abecedario
 
-nombreArchivo = 'datos.csv' #Pon aqui el nombre del archivo
+nombreArchivo = 'regresion.csv' #Pon aqui el nombre del archivo
 
 datos = pd.read_csv(nombreArchivo, delimiter=',', header=0, names=['x', 'dx', 'y', 'dy'])
 
@@ -159,6 +159,7 @@ print('\n \n')
 
 print(datos)
 print('\n')
+print('En regresion lineal es a + bx')
 listaDeCoeficientes = matrizCoeficientes.tolist()
 print('Los coeficientes son: ')
 for i in range(len(listaDeCoeficientes)):
@@ -207,8 +208,8 @@ plt.errorbar(datos.x, datos.y, xerr=datos.dx, yerr=datos.dy, fmt='b.', label='da
 plt.plot(puntosDeLineaX, puntosLineaY, 'r-', label='fit',linewidth=4.0) 
 #plt.xlim([0.2, 1.55]) 
 #plt.ylim([0.9, 6.5]) 
-plt.xlabel(r'$d^2 (m^2)$',fontsize=25) 
-plt.ylabel(r'$1/\alpha (s^2/rad)$',fontsize=25) 
+plt.xlabel(r'$t (s)$',fontsize=25) 
+plt.ylabel(r'$ln(v(t)/v_0)$',fontsize=25) 
 plt.legend(loc='best',fontsize=25) 
  
 # Este comando permite modificar el grosor de los ejes: 
