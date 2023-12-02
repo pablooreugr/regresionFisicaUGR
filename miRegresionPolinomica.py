@@ -131,7 +131,7 @@ def test_chi_squared():
     
     # Calculate the chi-squared value
     residuals = vectorDatosY - y_predicted
-    chi_squared = np.sum(residuals**2 / y_predicted)
+    chi_squared = np.sum(residuals**2 / vectorDatosDY)
     
     # Print the result
     return chi_squared
@@ -207,8 +207,8 @@ plt.errorbar(datos.x, datos.y, xerr=datos.dx, yerr=datos.dy, fmt='b.', label='da
 plt.plot(puntosDeLineaX, puntosLineaY, 'r-', label='fit',linewidth=4.0) 
 #plt.xlim([0.2, 1.55]) 
 #plt.ylim([0.9, 6.5]) 
-plt.xlabel(r'$T (s)$',fontsize=25) 
-plt.ylabel(r'$ángulo (rad)$',fontsize=25) 
+plt.xlabel(r'$d^2 (m^2)$',fontsize=25) 
+plt.ylabel(r'$1/\alpha (s^2/rad)$',fontsize=25) 
 plt.legend(loc='best',fontsize=25) 
  
 # Este comando permite modificar el grosor de los ejes: 
