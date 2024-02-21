@@ -6,8 +6,9 @@ import numpy as np #Sirve para controlar matrices
 import scipy.stats as stats #Me sirve para saber los valores de chi^2
 import matplotlib.pyplot as plt #Me sirve para crear las graficas como tal
 import string #Me sirve para tener el abecedario
+import csv # Sirve para crear un archivo csv
 
-nombreArchivo = 'regresion.csv' #Pon aqui el nombre del archivo
+nombreArchivo = 'Datos.csv' #Pon aqui el nombre del archivo
 
 datos = pd.read_csv(nombreArchivo, delimiter=',', header=0, names=['x', 'dx', 'y', 'dy'])
 
@@ -182,7 +183,16 @@ print(f"Pearson:\t{corr}")
 print("")
 
 
+resultados = pd.DataFrame({
+    'coeficientes': listaDeCoeficientes,
+    'erroresCof': listaErrores,
+    'chiTeor': chiTeorico,
+    'chiExp': chiExperimental,
+    'chiRed': chiExperimentalRed,
+    'pearson': corr
+})
 
+resultados.to_csv('resultadosRegresion.csv', index=False)
 
 #A PARTIR DE AQUI NOS DEDICAREMOS A DIBUJAR LA GRAFICA CON SEABORN
 
@@ -221,4 +231,3 @@ plt.tick_params(axis="x", labelsize=25, labelrotation=0, labelcolor="black")
 plt.tick_params(axis="y", labelsize=25, labelrotation=0, labelcolor="black") 
  
 plt.show()
-
