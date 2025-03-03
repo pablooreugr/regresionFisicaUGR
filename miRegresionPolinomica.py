@@ -109,7 +109,7 @@ matrizInversaPrimerProducto = np.linalg.inv(np.dot(productoDiseñoCovarianzas, m
 #Sacaremos los errores y los pondremos en una lista
 listaErrores = []
 for i in range(matrizInversaPrimerProducto.shape[0]):
-    listaErrores.append(matrizInversaPrimerProducto[i, i])
+    listaErrores.append(matrizInversaPrimerProducto[i, i]**0.5)
 
 
 #AHORA SACAREMOS LOS COEFICIENTES
