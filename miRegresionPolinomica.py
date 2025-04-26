@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt #Me sirve para crear las graficas como tal
 import string #Me sirve para tener el abecedario
 import csv # Sirve para crear un archivo csv
 
-nombreArchivo = 'Datos.csv' #Pon aqui el nombre del archivo
+nombreArchivo = 'datos.csv' #Pon aqui el nombre del archivo
 
 datos = pd.read_csv(nombreArchivo, delimiter=',', header=0, names=['x', 'dx', 'y', 'dy'])
 
@@ -212,22 +212,22 @@ for i in range(n):
 
 
 
-fig=plt.figure(figsize=[18,12]) 
+fig=plt.figure(figsize=[9,6]) 
 ax=fig.gca() 
-plt.errorbar(datos.x, datos.y, xerr=datos.dx, yerr=datos.dy, fmt='b.', label='data', linewidth=3) 
-plt.plot(puntosDeLineaX, puntosLineaY, 'r-', label='fit',linewidth=4.0) 
+plt.errorbar(datos.x, datos.y, xerr=datos.dx, yerr=datos.dy, fmt='b.', label='data', linewidth=2) 
+plt.plot(puntosDeLineaX, puntosLineaY, 'r-', label='fit', linewidth=2.5) 
 #plt.xlim([0.2, 1.55]) 
 #plt.ylim([0.9, 6.5]) 
-plt.xlabel(r'$t (s)$',fontsize=25) 
-plt.ylabel(r'$ln(v(t)/v_0)$',fontsize=25) 
-plt.legend(loc='best',fontsize=25) 
+plt.xlabel(r'$tan(\alpha)$', fontsize=15) 
+plt.ylabel(r'$I [A]$', fontsize=15) 
+plt.legend(loc='best', fontsize=12) 
  
 # Este comando permite modificar el grosor de los ejes: 
 for axis in ['top','bottom','left','right']: 
-    ax.spines[axis].set_linewidth(4) 
+    ax.spines[axis].set_linewidth(2) 
  
 # Con estas líneas podemos dar formato a los "ticks" de los ejes: 
-plt.tick_params(axis="x", labelsize=25, labelrotation=0, labelcolor="black") 
-plt.tick_params(axis="y", labelsize=25, labelrotation=0, labelcolor="black") 
+plt.tick_params(axis="x", labelsize=12, labelrotation=0, labelcolor="black") 
+plt.tick_params(axis="y", labelsize=12, labelrotation=0, labelcolor="black") 
  
 plt.show()
