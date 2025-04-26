@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt #Me sirve para crear las graficas como tal
 import string #Me sirve para tener el abecedario
 import csv # Sirve para crear un archivo csv
 
-nombreArchivo = 'datos.csv' #Pon aqui el nombre del archivo
+nombreArchivo = 'P5 Campo B Terrestre - Ajuste tarea 1.csv' #Pon aqui el nombre del archivo
 
 datos = pd.read_csv(nombreArchivo, delimiter=',', header=0, names=['x', 'dx', 'y', 'dy'])
 
@@ -161,10 +161,10 @@ print('\n \n')
 print(datos)
 print('\n')
 print('En regresion lineal es a + bx')
-listaDeCoeficientes = matrizCoeficientes.tolist()
+listaDeCoeficientes = [coef[0] for coef in matrizCoeficientes.tolist()]
 print('Los coeficientes son: ')
 for i in range(len(listaDeCoeficientes)):
-    print(f"{abecedario[i]}:\t{listaDeCoeficientes[i][0]} ± {listaErrores[i]}")
+    print(f"{abecedario[i]}:\t{listaDeCoeficientes[i]} ± {listaErrores[i]}")
 print()
 
 # Print chi-squared values
